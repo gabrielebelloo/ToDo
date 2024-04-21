@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block main %}
+<div class="todo-form">
+  <h1>New ToDo</h1>
+  <form method="post" action="/"> 
+    <textarea name="todo" id="note"></textarea>
+    <button type="submit" class="main-button">Add</button>
+  </form>
+</div>
+<div class="bottom-div">
+  <ul class="todos-list">
+    {% for todo in user.todos %}
+      <li class="todos-list-{{ todo.id }}">
+        {% if todo.status == true %}
+        <div class="checkbox-container checkbox-container-{{ todo.id }}">
+          <input data-id="{{ todo.id }}" id="checkbox{{ todo.id }}" type="checkbox" class="checkbox-{{ todo.id }} checkbox" checked>
+          <label for="checkbox{{ todo.id }}"><span class="todo-text-{{ todo.id }}">{{ todo.text }}</span></label>
+        </div>
+        <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
+          <textarea class="edit-input" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
+          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
+        </form>
+        {% else %}
+        <div class="checkbox-container checkbox-container-{{ todo.id }}">
+          <input data-id="{{ todo.id }}" id="checkbox{{ todo.id }}" type="checkbox" class="checkbox-{{ todo.id }} checkbox">
+          <label for="checkbox{{ todo.id }}"><span class="todo-text-{{ todo.id }}">{{ todo.text }}</span></label>
+        </div>
+        <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
+          <textarea class="edit-input" type="text" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
+          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
+        </form>
+        {% endif %}
+  
+        <button data-id="{{ todo.id }}" id="editButton" class="edit-button edit-button-{{ todo.id }} sec-button">Edit</button>
+        <button class="sec-button delete-button-{{ todo.id }}" data-id="{{ todo.id }}" id="deleteButton">Delete</button>
+      </li> 
+    {% endfor %}  
+  </ul>
+</div>
+{% endblock %}

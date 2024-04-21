@@ -1,0 +1,41 @@
+.show {
+  display: grid;
+  grid-template-columns: 80% 16%; 
+}
+
+.hide {
+  display: none;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.message-box {
+  position: fixed;
+  width: 100%;
+  top: 32px;
+}
+
+.message-box p {
+  padding: 10px;
+  color: white;
+}
+
+.green-message {
+  background-color: green;
+  opacity: 50%;
+}
+
+.red-message {
+  background-color: red;
+  opacity: 50%;
+}
+
+.active-nav {
+  background-color: black;
+}
+
+.active-nav:hover {
+  background-color: rgb(31, 31, 31);
+}

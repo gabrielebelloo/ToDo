@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}My Account{% endblock %}
+
+{% block main%}
+<form action="/my-account" autocomplete="off" method="post" class="form">
+  <div class="email-container">
+      <label for="email">Email</label>
+      <input class="form-input" type="email" name="email" id="email" placeholder="{{user.email}}" value="{{user.email}}">
+  </div>
+  <div class="username-container">
+      <label for="username">Username</label>
+      <input class="form-input" type="text" name="username" id="username" placeholder="{{user.username}}" value="{{user.username}}" autocomplete="off">
+  </div>
+  <div class="fullname-container">
+    <label for="fullName">Full Name</label>
+    {% if not user.full_name %}
+    <input class="form-input" type="text" name="fullName" id="fullName" placeholder="Insert your Full Name" autocomplete="off">
+    {% else %}
+    <input class="form-input" type="text" name="fullName" id="fullName" placeholder="{{user.full_name}}" value="{{user.full_name}}" autocomplete="off">
+    {% endif %}
+</div>
+  <div class="password-container">
+      <label for="password">Password</label>
+      <input class="form-input" type="password" name="password" id="password" placeholder="Insert new Password" autocomplete="new-password">
+      <input class="form-input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm new Password" autocomplete="new-password">
+  </div>
+  <button class="main-button" type="submit">Save</button>
+</form>
+{% endblock %}

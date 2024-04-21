@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block main %}
+  <form action="/sign-up" autocomplete="off" method="post" class="form">
+    <div class="email-container">
+        <label for="email">Email</label>
+        <input class="form-input" type="email" name="email" id="email" placeholder="Insert Email" autocomplete="off">
+    </div>
+    <div class="username-container">
+        <label for="username">Username</label>
+        <input class="form-input" type="text" name="username" id="username" placeholder="Insert Username" autocomplete="off">
+    </div>
+    <div class="password-container">
+        <label for="password">Password</label>
+        <input class="form-input" type="password" name="password" id="password" placeholder="Insert Password" autocomplete="new-password">
+        <input class="form-input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm Password" autocomplete="new-password">
+    </div>
+    <button class="main-button" type="submit">Sign Up</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/styles/navbar.css">
+  <link rel="stylesheet" href="../static/styles/buttons.css">
+  <link rel="stylesheet" href="../static/styles/forms.css">
+  <link rel="stylesheet" href="../static/styles/todos.css">
+  <link rel="stylesheet" href="../static/styles/switchers.css">
+  <link rel="stylesheet" href="../static/styles/general.css">
+  <title>ToDo - {% block title %}{% endblock %}</title>
+</head>
+<body>
+  <nav class="header-navbar">
+    <ul>
+      {% if user.is_authenticated %}
+      <li class="left"><a class="a" href="/">My ToDos</a></li>
+      <li class="right"><a class="a" href="/my-account">{{user.username}}</a></li>
+      <li class="right"><a class="a" href="/logout">Logout</a></li>
+      {% else %}
+      <li class="left logo">ToDo</li>
+      <li class="right"><a class="a" href="/login">Login</a></li>
+      <li class="right"><a class="a" href="/sign-up">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="message-box">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for message in messages %}
+          {% if message[0] == "error" %}
+          <p class="red-message">{{ message[1] }}</p>
+          {% elif message[0] == "success" %}
+          <p class="green-message">{{ message[1] }}</p>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <section>
+    {% block main %}
+    {% endblock %}
+  </section>
+  
+  <script src="../static/scripts/index.js"></script>
+</body>
+</html>

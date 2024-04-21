@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.bottom-div {
+  background-color: #CF8A9E;
+  margin-top: 40px;
+  padding-top: 40px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+section {
+  margin-top: 40px;
+  padding-top: 5%;
+}
+
+
+
+
+
+
+
+

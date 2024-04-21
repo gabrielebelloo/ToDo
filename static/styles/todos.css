@@ -1,0 +1,84 @@
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.todos-list li {
+  display: grid;
+  grid-template-columns: 80% 8% 8%;
+  align-items:start;
+}
+
+.todos-list li span {
+  width: 90%;
+  word-wrap: break-word;
+}
+
+.edit-input {
+  background-color: white;  
+  font-weight: bold;
+  font-size: 22px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: none;
+  margin: 0;
+  border-radius: 10px;
+  padding: 4px;
+  outline: none;
+  width: 90%;
+}
+
+
+.todos-stats {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.checkbox-container label {
+  cursor: pointer;
+  font-size: 22px;
+  color:rgb(0, 0, 0);
+  display: flex;
+}
+
+.checkbox-container input[type="checkbox"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-container label::before {
+  content: '';
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  height: 1em;
+  border: .05em solid black;
+  border-radius: .15em;
+  margin-right: .5em;
+  background-color: white;
+}
+
+.checkbox-container label:hover::before,
+.checkbox-container input[type="checkbox"]:hover + label::before {
+  background-color: #c9168a;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::before {
+  background-color: #A0153E;
+  content: "\002714";
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,0 +1,65 @@
+.form, .todo-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-right: 25%;
+  row-gap: 40px;
+}
+
+.email-container, .username-container, .password-container, .fullname-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.todo-form textarea {
+  background-color: #CF8A9E;
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: none;
+  margin: 0;
+  height: 100px;
+  border-radius: 10px;
+  padding: 4px;
+  outline: none;
+}
+
+.todo-form h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.todo-form form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.form-input {
+  outline: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  border: none;
+  background-color: #A0153E;
+  color: white;
+  font-size: 16px;
+}
+
+.form-input::placeholder {
+  color: #ff2db6;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #1b1b1b inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
