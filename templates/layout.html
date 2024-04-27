@@ -16,7 +16,7 @@
     <ul>
       {% if user.is_authenticated %}
       <li class="left"><a class="a" href="/">My ToDos</a></li>
-      <li class="right"><a class="a" href="/my-account">{{user.username}}</a></li>
+      <li class="right"><a class="a" href="/my-account">{% if user.full_name %}{{user.full_name}}{% else %}{{ user.username }}{% endif %}</a></li>
       <li class="right"><a class="a" href="/logout">Logout</a></li>
       {% else %}
       <li class="left logo">ToDo</li>

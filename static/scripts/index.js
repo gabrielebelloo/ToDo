@@ -18,6 +18,7 @@ editButtons.forEach((button) => {
 
     document.querySelector(`.edit-button-${toDoId}`).classList.add('hide');
     document.querySelector(`.delete-button-${toDoId}`).classList.add('hide');
+    document.querySelector(`.date-text-${toDoId}`).classList.add('hide');
 
     document.querySelector(`.edit-form-${toDoId}`).classList.remove('hide');
     document.querySelector(`.edit-form-${toDoId}`).classList.add('show');
@@ -61,7 +62,7 @@ function checkboxCheck(checkbox) {
 navbarElements = document.querySelectorAll('.a');
 
 navbarElements.forEach((element) => {
-  if (element.href === location.href) {
+  if (element.href === location.href || element.href + '?next=%2F' === location.href) {
     element.classList.add("active-nav");
   } else {
     element.classList.remove("active-nav");

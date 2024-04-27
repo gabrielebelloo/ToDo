@@ -1,6 +1,6 @@
 .show {
   display: grid;
-  grid-template-columns: 80% 16%; 
+  grid-template-columns: 55% 25% 20%;  
 }
 
 .hide {

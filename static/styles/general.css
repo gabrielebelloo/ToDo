@@ -10,7 +10,8 @@ body {
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  row-gap: 5px;
 }
 
 section {

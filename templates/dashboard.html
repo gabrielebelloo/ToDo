@@ -3,14 +3,17 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block main %}
+
 <div class="todo-form">
   <h1>New ToDo</h1>
   <form method="post" action="/"> 
     <textarea name="todo" id="note"></textarea>
+    <input type="datetime-local" name="date" value="{{now}}" min="{{now}}">
     <button type="submit" class="main-button">Add</button>
   </form>
 </div>
 <div class="bottom-div">
+  <div class="todos-header"><div>ToDo</div><div>Due date</div></div>
   <ul class="todos-list">
     {% for todo in user.todos %}
       <li class="todos-list-{{ todo.id }}">
@@ -21,6 +24,7 @@
         </div>
         <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
           <textarea class="edit-input" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
+          <input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}">
           <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
         </form>
         {% else %}
@@ -30,11 +34,13 @@
         </div>
         <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
           <textarea class="edit-input" type="text" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
+          <input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}">
           <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
         </form>
         {% endif %}
-  
+        <div class="date-text date-text-{{todo.id}}">{{todo.date}}</div>
         <button data-id="{{ todo.id }}" id="editButton" class="edit-button edit-button-{{ todo.id }} sec-button">Edit</button>
+        <div></div>
         <button class="sec-button delete-button-{{ todo.id }}" data-id="{{ todo.id }}" id="deleteButton">Delete</button>
       </li> 
     {% endfor %}  

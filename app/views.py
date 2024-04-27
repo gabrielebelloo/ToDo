@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, jsonify, redirect,
 from flask_login import login_required, current_user
 from .models import User, ToDo, db
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 import json
 
 
@@ -10,22 +11,28 @@ views = Blueprint("views", __name__, template_folder='templates', static_folder=
 
 @views.route("/", methods=["GET", "POST"])
 @login_required
-def dashboard():
+def dashboard(): 
+  now = datetime.now()
+  now = now.strftime("%Y-%m-%dT%H:%M")
+
   if request.method == "POST":
     todo = request.form.get("todo")
+    date = datetime.strptime(request.form.get("date"), '%Y-%m-%dT%H:%M')
+    
+    print(date)
 
     if len(todo) < 1:
       flash("Insert text.", category="error")
     else:
-      new_todo = ToDo(text=todo, user_id=current_user.id, status=False)
+      new_todo = ToDo(text=todo, date=date, user_id=current_user.id, status=False)
       db.session.add(new_todo)
       db.session.commit()
       flash("ToDo created!", category="success")
   
-    return render_template("dashboard.html", user=current_user)
+    return render_template("dashboard.html", user=current_user, now=now)
     
   elif request.method == "GET": 
-    return render_template("dashboard.html", user=current_user)
+    return render_template("dashboard.html", user=current_user, now=now)
   
 
 @views.route("/my-account", methods=["GET", "POST"])
@@ -120,6 +127,7 @@ def delete_todo():
 @login_required
 def edit_todo():
   edited_todo = request.form.get('edited_todo')
+  edited_date = datetime.strptime(request.form.get("edited_date"), '%Y-%m-%dT%H:%M')
   edited_todo_id = request.form.get('button')
   
   todo_found = ToDo.query.get(edited_todo_id)
@@ -132,6 +140,7 @@ def edit_todo():
         flash("Note deleted successfully!", category="success")
       else:
         todo_found.text = edited_todo
+        todo_found.date = edited_date
         db.session.commit()
         flash("Note edited successfully!", category="success")
 

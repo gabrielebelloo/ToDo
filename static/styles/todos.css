@@ -4,19 +4,30 @@
   list-style-type: none;
   row-gap: 20px;
   column-gap: 10px;
-  margin-right: 20%;
-  margin-left: 20%;
+  width: 70%;
 }
 
 .todos-list li {
   display: grid;
-  grid-template-columns: 80% 8% 8%;
-  align-items:start;
+  grid-template-columns: 45% 25% 12% 1% 12%;
+  align-items: center;
+  padding: 8px;
+  background-color:#A0153E;
+  border-radius: 10px;
 }
 
 .todos-list li span {
   width: 90%;
   word-wrap: break-word;
+}
+
+.todos-header {
+  font-size: 24px;
+  font-weight: bold;
+  width: 70%; 
+  margin-left: 40px;
+  display: grid;
+  grid-template-columns: 45% 55%;
 }
 
 .edit-input {
@@ -33,6 +44,23 @@
   width: 90%;
 }
 
+.edit-date {
+  width: 90%;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  padding-bottom: 34px;
+}
+
+::-webkit-calendar-picker-indicator{
+  margin-left: -15px;
+}
+
+.date-text{
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
 
 .todos-stats {
   display: flex;
@@ -46,7 +74,7 @@
 .checkbox-container label {
   cursor: pointer;
   font-size: 22px;
-  color:rgb(0, 0, 0);
+  color: white;
   display: flex;
 }
 
@@ -69,11 +97,11 @@
 
 .checkbox-container label:hover::before,
 .checkbox-container input[type="checkbox"]:hover + label::before {
-  background-color: #c9168a;
+  background-color: #74e926;
 }
 
 .checkbox-container input[type="checkbox"]:checked + label::before {
-  background-color: #A0153E;
+  background-color: #1aa015;
   content: "\002714";
   padding-left: 0.1em;
   padding-right: 0.1em;
@@ -82,3 +110,31 @@
   align-items: center;
 }
 
+
+@media only screen and (max-width: 800px) {
+  .todos-list li span {
+    font-size: 18px;
+  }
+
+  .date-text {
+    font-size: 16px;
+  }
+
+  .todos-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .todos-list li {
+    grid-template-columns: 45% 25% 14% 2% 14%;
+    border-radius: 0;
+  }
+  
+  .todos-header {
+    width: 100%; 
+    grid-template-columns: 45% 55%;
+    margin: 0;
+    padding: 0;
+  }
+}

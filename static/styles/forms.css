@@ -52,6 +52,11 @@ label {
   font-size: 16px;
 }
 
+.edit-form {
+  display: flex;
+  align-items: center;
+}
+
 .form-input::placeholder {
   color: #ff2db6;
 }
