@@ -1,31 +1,25 @@
-.main-button {
-  background-color: #8b0c5f;
-  color: #ffffff;
+.main-button, .sec-button {
+  height: 40px;
   border: none;
-  width: 80px;
-  height: 36px;
-  border: none;
-  border-radius: 18px;
+  border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.1s;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.main-button {
+  background-color: #A0153E;
+  color: #ffffff;  
 }
 
 .main-button:hover {
-  background-color: rgb(114, 12, 78);
+  background-color: #750f2e;
 }
 
 .sec-button {
   background-color: #ffffff;
   color: #000000;
-  border: none;
-  height: 34px;
-  border-radius: 18px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.1s;
-  font-weight: 600;
 }
 
 .sec-button:hover {

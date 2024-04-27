@@ -3,13 +3,13 @@
   flex-direction: column;
   list-style-type: none;
   row-gap: 20px;
-  column-gap: 10px;
   width: 70%;
+  padding-inline-start: 0px;
 }
 
 .todos-list li {
   display: grid;
-  grid-template-columns: 45% 25% 12% 1% 12%;
+  grid-template-columns: 50% 25% 12% 1% 12%;
   align-items: center;
   padding: 8px;
   background-color:#A0153E;
@@ -25,9 +25,8 @@
   font-size: 24px;
   font-weight: bold;
   width: 70%; 
-  margin-left: 40px;
   display: grid;
-  grid-template-columns: 45% 55%;
+  grid-template-columns: 50% 50%;
 }
 
 .edit-input {
@@ -42,14 +41,21 @@
   padding: 4px;
   outline: none;
   width: 90%;
+  height: 40px;
 }
 
-.edit-date {
+.todo-date, .edit-date {
   width: 90%;
   border-radius: 12px;
-  border: none;
   font-size: 18px;
-  padding-bottom: 34px;
+  height: 40px;
+  border: none;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.todo-date {
+  border: 1px solid black;
 }
 
 ::-webkit-calendar-picker-indicator{
@@ -97,11 +103,11 @@
 
 .checkbox-container label:hover::before,
 .checkbox-container input[type="checkbox"]:hover + label::before {
-  background-color: #74e926;
+  background-color: #ff2365;
 }
 
 .checkbox-container input[type="checkbox"]:checked + label::before {
-  background-color: #1aa015;
+  background-color: #480b1d;
   content: "\002714";
   padding-left: 0.1em;
   padding-right: 0.1em;
