@@ -1,2 +1,2 @@
-instance/database.db
-app/_pycache_
+instance/
+app/_pycache_/
