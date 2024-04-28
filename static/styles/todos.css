@@ -1,9 +1,19 @@
+/* ToDos list styling */
+.todos-header {
+  font-size: 24px;
+  font-weight: bold;
+  width: 70%; 
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
 .todos-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   list-style-type: none;
   row-gap: 20px;
-  width: 70%;
+  width: 71%;
   padding-inline-start: 0px;
 }
 
@@ -14,6 +24,7 @@
   padding: 8px;
   background-color:#A0153E;
   border-radius: 10px;
+  width: 100%;
 }
 
 .todos-list li span {
@@ -21,62 +32,15 @@
   word-wrap: break-word;
 }
 
-.todos-header {
-  font-size: 24px;
-  font-weight: bold;
-  width: 70%; 
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.edit-input {
-  background-color: white;  
-  font-weight: bold;
-  font-size: 22px;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  resize: none;
-  margin: 0;
-  border-radius: 10px;
-  padding: 4px;
-  outline: none;
-  width: 90%;
-  height: 40px;
-}
-
-.todo-date, .edit-date {
-  width: 90%;
-  border-radius: 12px;
-  font-size: 18px;
-  height: 40px;
-  border: none;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
-.todo-date {
-  border: 1px solid black;
-}
-
-::-webkit-calendar-picker-indicator{
-  margin-left: -15px;
-}
-
 .date-text{
-  font-size: 18px;
+  font-size: 19px;
   font-weight: bold;
   color: white;
-}
-
-.todos-stats {
-  display: flex;
-  flex-direction: column;
-  row-gap: 5px;
-  justify-content: center;
-  align-items: center;
+  margin-left: 5px;
 }
 
 
+/* Checkbox styling */
 .checkbox-container label {
   cursor: pointer;
   font-size: 22px;
@@ -118,29 +82,64 @@
 
 
 @media only screen and (max-width: 800px) {
-  .todos-list li span {
-    font-size: 18px;
-  }
-
-  .date-text {
+  .todos-list li span, .date-text {
     font-size: 16px;
   }
 
   .todos-list {
     width: 100%;
-    margin: 0;
-    padding: 0;
   }
 
   .todos-list li {
-    grid-template-columns: 45% 25% 14% 2% 14%;
-    border-radius: 0;
+    grid-template-columns: 40% 25% 16% 3% 16%;
+    width: 95%;
+    padding: 4px;
   }
   
   .todos-header {
     width: 100%; 
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 40% 60%;
     margin: 0;
     padding: 0;
+  }
+
+  .todo-form {
+    width: 95%;
+    grid-template-columns: 100%;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .todo-textarea, .todo-date {
+    width: 98%;
+  }
+
+  .date-n-button {
+    grid-template-columns: 100%;
+    row-gap: 10px;
+  }
+
+  .date-text {
+    margin: 0;
+  }
+
+  .auth-form {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 801px) {
+  .todos-list, .todo-form {
+    width: 90%;
+  }
+
+  .date-n-button {
+    grid-template-columns: 100%;
+    row-gap: 10px;
+  }
+
+  .todo-date {
+    width: 98%;
   }
 }

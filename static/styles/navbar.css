@@ -1,3 +1,4 @@
+/* Navbar styling */
 .header-navbar ul {
   list-style-type: none;
   width: 100%;
@@ -7,16 +8,6 @@
   background-color: #A0153E;
   z-index: 9999;
   top: 0;
-}
-
-.left {
-  display: inline;
-  float: left;
-}
-
-.right {
-  display: inline;
-  float: right;
 }
 
 .a, .logo { 
@@ -42,3 +33,12 @@
   white-space: nowrap;
 }
 
+.left {
+  display: inline;
+  float: left;
+}
+
+.right {
+  display: inline;
+  float: right;
+}

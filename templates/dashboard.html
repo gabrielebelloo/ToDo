@@ -8,8 +8,10 @@
   <h1>New ToDo</h1>
   <form method="post" action="/" class="todo-form">
     <textarea name="todo" class="todo-textarea"></textarea>
-    <input class="todo-date" type="datetime-local" name="date" value="{{now}}" min="{{now}}">
-    <button type="submit" class="main-button">Add</button>
+    <div class="date-n-button">
+      <input class="todo-date" type="datetime-local" name="date" value="{{now}}" min="{{now}}">
+      <button type="submit" class="main-button add-button">Add</button>
+    </div>
   </form>
 </div>
 <div class="bottom-div">
@@ -35,7 +37,7 @@
         <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
           <textarea class="edit-input" type="text" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
           <input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}">
-          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
+          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit">Save</button>
         </form>
         {% endif %}
         <div class="date-text date-text-{{todo.id}}">{{convert_date(todo.date)}}</div>

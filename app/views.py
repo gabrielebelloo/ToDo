@@ -18,8 +18,6 @@ def dashboard():
   if request.method == "POST":
     todo = request.form.get("todo")
     date = datetime.strptime(request.form.get("date"), '%Y-%m-%dT%H:%M')
-    
-    print(date)
 
     if len(todo) < 1:
       flash("Insert text.", category="error")
@@ -118,7 +116,7 @@ def delete_todo():
     if todo_found.user_id == current_user.id:
       db.session.delete(todo_found)
       db.session.commit()
-      flash("Note deleted successfully!", category="success")
+      flash("Note deleted", category="success")
 
   return jsonify({})
 
@@ -137,12 +135,12 @@ def edit_todo():
       if edited_todo == "":
         db.session.delete(todo_found)
         db.session.commit()
-        flash("Note deleted successfully!", category="success")
+        flash("Note deleted", category="success")
       else:
         todo_found.text = edited_todo
         todo_found.date = edited_date
         db.session.commit()
-        flash("Note edited successfully!", category="success")
+        flash("Note edited", category="success")
 
   return redirect(url_for('views.dashboard'))
 
@@ -158,10 +156,8 @@ def checkbox():
     if todo_found.user_id == current_user.id:
       if todo_found.status == True:
         todo_found.status = False
-        flash('ToDo unchecked.', category='success')
       else:
         todo_found.status = True
-        flash('ToDo checked!', category='success')        
       db.session.commit()
 
   return jsonify({})
@@ -171,6 +167,6 @@ def checkbox():
 def my_utility_processor():
 
   def convert_date(date):
-    return date.strftime("%d-%m-%Y %H:%M")
+    return date.strftime("%d / %m / %Y %H:%M")
   
   return dict(convert_date=convert_date)

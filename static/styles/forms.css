@@ -1,3 +1,4 @@
+/* Styling for ToDo Form Section */
 .todo-form-div {
   display: flex;
   flex-direction: column;
@@ -7,27 +8,16 @@
 
 .todo-form {
   display: grid;
-  grid-template-columns: 50% 25% 25%;
+  grid-template-columns: 50% 50%;
   width: 70%;
   justify-content: center;
   align-items: center;
+  padding: 8px;
 }
 
-.todo-form div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.email-container, .username-container, .password-container, .fullname-container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-label {
-  font-size: 20px;
-  font-weight: bold;
+.date-n-button {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .todo-textarea {
@@ -43,25 +33,92 @@ label {
   padding: 4px;
   width: 90%;
   outline: none;
+  border-color: #A0153E;
+  border-width: 2px;
+}
+
+.todo-date, .edit-date {
+  width: 90%;
+  border-radius: 12px;
+  font-size: 18px;
+  height: 40px;
+  border: none;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.todo-date {
+  border: 1px solid black;
+}
+
+::-webkit-calendar-picker-indicator{
+  margin-left: -15px;
+}
+
+.edit-input {
+  background-color: white;  
+  font-weight: bold;
+  font-size: 22px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: none;
+  margin: 0;
+  border-radius: 10px;
+  padding: 4px;
+  outline: none;
+  width: 90%;
+  height: 40px;
+}
+
+
+/* Styling for Authorization Form Section such as Login and Sign Up */
+.auth-form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  margin-top: 60px;
+}
+
+
+.email-container, .username-container, .password-container, .fullname-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 100%;
+}
+
+.password-container {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .form-input {
   outline: none;
-  padding: 15px 20px;
+  padding: 18px 20px;
   border-radius: 25px;
   border: none;
   background-color: #A0153E;
   color: white;
   font-size: 16px;
-}
-
-.edit-form {
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .form-input::placeholder {
   color: #ff3030;
+}
+
+
+.edit-form {
+  display: flex;
+  align-items: center;
 }
 
 input:-webkit-autofill,
