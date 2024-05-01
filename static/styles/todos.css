@@ -4,7 +4,7 @@
   font-weight: bold;
   width: 70%; 
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 52% 50%;
 }
 
 .todos-list {
@@ -19,7 +19,7 @@
 
 .todos-list li {
   display: grid;
-  grid-template-columns: 50% 25% 12% 1% 12%;
+  grid-template-columns: 50% 2% 21% 2% 12% 1% 12%;
   align-items: center;
   padding: 8px;
   background-color:#A0153E;
@@ -32,20 +32,22 @@
   word-wrap: break-word;
 }
 
-.date-text{
+.date-text {
   font-size: 19px;
   font-weight: bold;
   color: white;
-  margin-left: 5px;
 }
 
-.icon {
+.icon, .icon-save {
   display: none;
+  margin-left: 2px;
+  margin-bottom: 2px;
 }
 
-.icon img {
+.icon img,.icon-save img {
   height: 18px;
 }
+
 
 /* Checkbox styling */
 .checkbox-container label {
