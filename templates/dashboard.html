@@ -6,10 +6,12 @@
 <div class="todo-form-div">
   <h1>New ToDo</h1>
   <form method="post" action="/" class="todo-form">
-    <textarea name="todo" class="todo-textarea"></textarea>
+    <div class="textarea-div">
+      <textarea name="todo" class="todo-textarea"></textarea>
+    </div>
     <div class="date-n-button">
-      <input class="todo-date" type="datetime-local" name="date" value="{{now}}" min="{{now}}">
-      <button type="submit" class="main-button add-button">Add</button>
+      <div><input class="todo-date" type="datetime-local" name="date" value="{{now}}" min="{{now}}"></div>
+      <div><button type="submit" class="main-button add-button">Add</button></div>
     </div>
   </form>
 </div>
@@ -24,9 +26,16 @@
           <label for="checkbox{{ todo.id }}"><span class="todo-text-{{ todo.id }}">{{ todo.text }}</span></label>
         </div>
         <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
-          <textarea class="edit-input" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
-          <input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}">
-          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >Save</button>
+          <div><textarea class="edit-input" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea></div>
+          <div></div>
+          <div class="edit-date-n-button">
+            <div><input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}"></div>
+            <div></div>
+            <div><button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >
+              <span class="text-save">Save</span>
+              <span class="icon-save"><img src="../static/icons/diskette.png" /></span>
+            </button></div>
+          </div>
         </form>
         {% else %}
         <div class="checkbox-container checkbox-container-{{ todo.id }}">
@@ -34,12 +43,21 @@
           <label for="checkbox{{ todo.id }}"><span class="todo-text-{{ todo.id }}">{{ todo.text }}</span></label>
         </div>
         <form class="hide edit-form-{{ todo.id }} edit-form" method="POST" action="/edit-todo">
-          <textarea class="edit-input" type="text" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea>
-          <input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}">
-          <button class="sec-button" name="button" value="{{ todo.id }}" type="submit">Save</button>
+          <div><textarea class="edit-input" placeholder="Insert edited ToDo" name="edited_todo" autocomplete="off">{{todo.text}}</textarea></div>
+          <div></div>
+          <div class="edit-date-n-button">
+            <div><input class="edit-date" type="datetime-local" name="edited_date" value="{{todo.date}}"></div>
+            <div></div>
+            <div><button class="sec-button" name="button" value="{{ todo.id }}" type="submit" >
+              <span class="text-save">Save</span>
+              <span class="icon-save"><img src="../static/icons/diskette.png" /></span>
+            </button></div>
+          </div>
         </form>
         {% endif %}
-        <div class="date-text date-text-{{todo.id}}">{{convert_date(todo.date)}}</div>
+        <div></div>
+        <div class="date-text date-text-{{todo.id}}"><div>{{convert_date(todo.date)}}</div></div>
+        <div></div>
         <button data-id="{{ todo.id }}" id="editButton" class="edit-button edit-button-{{ todo.id }} sec-button">
           <span class="text">Edit</span>
           <span class="icon"><img src="../static/icons/pencil.png" /></span>
