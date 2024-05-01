@@ -1,3 +1,15 @@
+@media only screen and (max-width: 500px) {
+  .text {
+    display: none;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .todos-list li span, .date-text {
     font-size: 16px;
@@ -49,5 +61,12 @@
   }
   .todo-date {
     width: 98%;
+  }
+
+  .todos-header {
+    width: 90%; 
+    grid-template-columns: 50% 50%;
+    margin: 0;
+    padding: 0;
   }
 }

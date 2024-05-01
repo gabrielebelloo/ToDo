@@ -39,6 +39,13 @@
   margin-left: 5px;
 }
 
+.icon {
+  display: none;
+}
+
+.icon img {
+  height: 18px;
+}
 
 /* Checkbox styling */
 .checkbox-container label {

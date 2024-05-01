@@ -40,9 +40,15 @@
         </form>
         {% endif %}
         <div class="date-text date-text-{{todo.id}}">{{convert_date(todo.date)}}</div>
-        <button data-id="{{ todo.id }}" id="editButton" class="edit-button edit-button-{{ todo.id }} sec-button">Edit</button>
+        <button data-id="{{ todo.id }}" id="editButton" class="edit-button edit-button-{{ todo.id }} sec-button">
+          <span class="text">Edit</span>
+          <span class="icon"><img src="../static/icons/pencil.png" /></span>
+        </button>
         <div></div>
-        <button class="sec-button delete-button-{{ todo.id }}" data-id="{{ todo.id }}" id="deleteButton">Delete</button>
+        <button class="sec-button delete-button-{{ todo.id }}" data-id="{{ todo.id }}" id="deleteButton">
+          <span class="text">Delete</span>
+          <span class="icon"><img src="../static/icons/trash-can.png" /></span>
+        </button>
       </li> 
     {% endfor %}  
   </ul>
