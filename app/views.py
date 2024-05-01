@@ -8,7 +8,7 @@ import json
 
 views = Blueprint("views", __name__, template_folder='templates', static_folder='static')
 
-
+# Main route - creating new notess
 @views.route("/", methods=["GET", "POST"])
 @login_required
 def dashboard(): 
@@ -18,7 +18,6 @@ def dashboard():
   if request.method == "POST":
     todo = request.form.get("todo")
     date = datetime.strptime(request.form.get("date"), '%Y-%m-%dT%H:%M')
-
     if len(todo) < 1:
       flash("Insert text.", category="error")
     else:
@@ -26,13 +25,13 @@ def dashboard():
       db.session.add(new_todo)
       db.session.commit()
       flash("ToDo created!", category="success")
-  
     return render_template("dashboard.html", user=current_user, now=now)
     
   elif request.method == "GET": 
     return render_template("dashboard.html", user=current_user, now=now)
   
 
+# Account route - editing/showing account's data
 @views.route("/my-account", methods=["GET", "POST"])
 @login_required
 def my_account():
@@ -47,65 +46,61 @@ def my_account():
     user_username = User.query.filter_by(username=username).first()
     current = User.query.filter_by(id=current_user.id).first()
 
-
     if email != current.email:
       if user_email and not user_email.email == current.email:
         flash("Email already exists.", category="error")
-        return render_template("my_account.html", user=current_user)
+        return redirect(url_for('views.my_account'))
       elif len(email) < 4:
         flash("Insert valid email.", category="error")
-        return render_template("my_account.html", user=current_user)
+        return redirect(url_for('views.my_account'))
       else:
         current.email = email
         db.session.commit()
-        
-
 
     if username != current.username:
       if user_username and not user_username.username == current.email:
         flash("Username already exists.", category="error")
-        return redirect(url_for(views.my_account))
+        return redirect(url_for('views.my_account'))
       elif len(username) < 2:
         flash("Insert a valid username.", category="error")
-        return render_template("my_account.html", user=current_user)
+        return redirect(url_for('views.my_account'))
       else:
         current.username = username
         db.session.commit()
 
-
     if full_name != current.full_name:
       if len(full_name) < 3:
         flash("Insert a valid full name.", category="error")
-        return render_template("my_account.html", user=current_user)
+        return redirect(url_for('views.my_account'))
       else:
         current.full_name = full_name
         db.session.commit()
-
 
     if not password:
       pass
     else:
       if check_password_hash(current.password, password):
         flash("Password is the same.", category="error")
-        return render_template("my_account.html", user=current_user)
+        return redirect(url_for('views.my_account'))
       else:
         if len(password) < 8:
           flash("Password must be at least 8 characters long.", category="error")
-          return render_template("my_account.html", user=current_user)
+          return redirect(url_for('views.my_account'))
         elif password != passwordConfirm:
           flash("Passwords do not match.", category="error")
-          return render_template("my_account.html", user=current_user)
+          return redirect(url_for('views.my_account'))
         else:
           current.password = generate_password_hash(password, method="pbkdf2:sha256")
           db.session.commit()
 
     flash("Account data saved!", category="success")
     return render_template("my_account.html", user=current_user)
+  
   elif request.method == "GET":
-    
     return render_template("my_account.html", user=current_user)
   
 
+# Deals with deleting a ToDo
 @views.route("/delete-todo", methods=['POST'])
 @login_required
 def delete_todo():
@@ -117,10 +112,10 @@ def delete_todo():
       db.session.delete(todo_found)
       db.session.commit()
       flash("Note deleted", category="success")
-
   return jsonify({})
 
 
+# Deals with editing a ToDo
 @views.route("/edit-todo", methods=['POST'])
 @login_required
 def edit_todo():
@@ -145,6 +140,7 @@ def edit_todo():
   return redirect(url_for('views.dashboard'))
 
 
+# Deals with checking or unchecking a checkbox
 @views.route("/checkbox", methods=['POST'])
 @login_required
 def checkbox():
@@ -163,6 +159,7 @@ def checkbox():
   return jsonify({})
 
 
+# Creates a function (convert_date) used inside the html template through Jinja syntax
 @views.context_processor
 def my_utility_processor():
 

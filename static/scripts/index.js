@@ -4,7 +4,7 @@ const checkboxes = document.querySelectorAll('.checkbox');
 const navbarElements = document.querySelectorAll('.a');
 
 
-// Event listener for the checkbox
+// Event listeners for the checkboxex
 checkboxes.forEach((checkbox) => {
   checkboxCheck(checkbox);
   checkbox.addEventListener('click', () => {
@@ -15,7 +15,7 @@ checkboxes.forEach((checkbox) => {
 });
 
 
-// Event listener for the "Delete" button
+// Event listeners for the "Delete" buttons
 deleteButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const toDoId = button.dataset.id;
@@ -24,7 +24,7 @@ deleteButtons.forEach((button) => {
 });
 
 
-// Event listener for the "Edit" button
+// Event listeners for the "Edit" buttons
 editButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const toDoId = button.dataset.id;
@@ -49,7 +49,7 @@ navbarElements.forEach(element => {
 });
 
 
-// Sends post request to check a ToDo
+// Sends post request to check/uncheck a ToDo
 function checkToDo(toDoId) {
   fetch('/checkbox', {
     method: 'POST',
