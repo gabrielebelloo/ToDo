@@ -22,6 +22,12 @@ Create your personalized account and effortlessly manage your tasks with ease.
 - HTML
 - CSS
 
+## Documentation
+Flask: https://flask.palletsprojects.com/en/3.0.x/
+Flask-SQLAlchemy: https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/
+Flask-Login: https://flask-login.readthedocs.io/en/latest/
+Werkzeug: https://werkzeug.palletsprojects.com/en/3.0.x/
+
 ## Installation
 Install with pip:
 ```
