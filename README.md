@@ -21,3 +21,9 @@ Create your personalized account and effortlessly manage your tasks with ease.
 - JavaScript
 - HTML
 - CSS
+
+## Installation
+Install with pip:
+```
+$ pip install -r requirements.txt
+```
