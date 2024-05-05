@@ -24,6 +24,6 @@ def load_user(id):
 if __name__ == "__main__":
   with app.app_context():
     if not path.exists(f"instance/{DB_NAME}"):
-      print("Database created")
       db.create_all()
+      print("Database created")
   app.run(debug=True)
